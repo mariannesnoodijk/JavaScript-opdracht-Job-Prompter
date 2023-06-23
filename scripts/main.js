@@ -72,60 +72,82 @@ const departments = {
 }
 
 console.log(departments);
-
+// ========================== OPDRACHT 1A ========================== //
 console.log('Opdracht 1a');
 console.log(`De afdeling Sales heeft ${departments.sales.numberOfEmployees} medewerkers`);
 console.log();
+// ========================== OPDRACHT 1B ========================== //
 console.log('Opdracht 1b');
 console.log(`Marketing is een leuke afdeling om te werken. ${departments.marketing.description}.`);
 console.log();
+// ========================== OPDRACHT 1C ========================== //
 console.log('Opdracht 1c');
 console.log(`De afdeling Customer Service heeft ${departments["customer-service"].numberOfEmployees} medewerkers`);
 console.log();
+// ========================== OPDRACHT 1D ========================== //
 console.log('Opdracht 1d');
 console.log(`Sales is een uitdagende afdeling om te werken als "Verkoopmanager". ${departments.sales.jobs[1].description}`);
 console.log();
 console.log();
-// console.log('Opdracht 2a, 2b en 2c');
-// const userInput = prompt('Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]');
-// switch (userInput) {
-//     case 'marketing':
-//         console.log(`Je koos ${userInput}. ${departments.marketing.description}`);
-//         break;
-//     case 'sales':
-//         console.log(`Je koos ${userInput}. ${departments.sales.description}`);
-//         break;
-//     case 'customer-service':
-//         console.log(`Je koos ${userInput}. ${departments["customer-service"].description}`);
-//         break;
-//     default:
-//         console.error('Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.');
-// }
-console.log('Opdracht 3a, 3b en 3c');
-const userInput = prompt('Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]');
-const resultInputString = prompt(`Je koos ${userInput}. Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.
-0: ${departments.marketing.jobs[0].title},
-1: ${departments.marketing.jobs[1].title},
-2: ${departments.marketing.jobs[2].title},
-3: ${departments.marketing.jobs[3].title}`);
 
-const resultInput = Number(resultInputString);
-switch (resultInput) {
+
+// ========================== OPDRACHT 2A, 2B en 2C ========================== //
+console.log('Opdracht 2a, 2b en 2c');
+const departmentChoice = prompt('Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]');
+
+switch (departmentChoice) {
+    case 'marketing':
+        // console.log(`Je koos ${departmentChoice}. ${departments.marketing.description}`);
+        console.log(`${departmentChoice.toUpperCase()} is een leuke afdeling om te werken. Er werken op dit moment ${departments[departmentChoice].numberOfEmployees} medewerkers.`)
+        break;
+    case 'sales':
+        // console.log(`Je koos ${departmentChoice}. ${departments.sales.description}`);
+        console.log(`${departmentChoice.toUpperCase()} is een leuke afdeling om te werken. Er werken op dit moment ${departments[departmentChoice].numberOfEmployees} medewerkers.`)
+        break;
+    case 'customer-service':
+        // console.log(`Je koos ${departmentChoice}. ${departments["customer-service"].description}`);
+        console.log(`${departmentChoice.toUpperCase()} is een leuke afdeling om te werken. Er werken op dit moment ${departments[departmentChoice].numberOfEmployees} medewerkers.`)
+        break;
+    default:
+        console.error('Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.');
+        document.getElementById('error-message').textContent = `Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`;
+}
+
+// ========================== OPDRACHT 3A, 3B en 3C ========================== //
+// console.log('Opdracht 3a, 3b en 3c');
+
+// ========================== OPDRACHT 4A, 4B en 4C ========================== //
+
+const jobChoice = prompt(`Je koos ${departmentChoice.toUpperCase()}. Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.
+0: ${departments[departmentChoice].jobs[0].title},
+1: ${departments[departmentChoice].jobs[1].title},
+2: ${departments[departmentChoice].jobs[2].title},
+3: ${departments[departmentChoice].jobs[3].title}`);
+
+
+switch (jobChoice) {
     case 0:
-        console.log(`Je koos ${departments.marketing.jobs[0].title}. Een uitdagende rol! ${departments.marketing.jobs[0].description}`);
+        console.log(`Je koos ${departments[departmentChoice].jobs[0].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[0].description}`);
         break;
     case 1:
-        console.log(`Je koos ${departments.marketing.jobs[1].title}. Een uitdagende rol! ${departments.marketing.jobs[1].description}`);
+        console.log(`Je koos ${departments[departmentChoice].jobs[1].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[1].description}`);
         break;
     case 2:
-        console.log(`Je koos ${departments.marketing.jobs[2].title}. Een uitdagende rol! ${departments.marketing.jobs[2].description}`);
+        console.log(`Je koos ${departments[departmentChoice].jobs[2].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[2].description}`);
         break;
     case 3:
-        console.log(`Je koos ${departments.marketing.jobs[3].title}. Een uitdagende rol! ${departments.marketing.jobs[3].description}`);
+        console.log(`Je koos ${departments[departmentChoice].jobs[3].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[3].description}`);
+        break;
+    case 4:
+        console.log(`Je koos ${departments[departmentChoice].jobs[4].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[3].description}`);
         break;
     default:
         console.log(`Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`)
+        document.getElementById('error-message').textContent = `Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`;
 }
 
-// let ageStr = prompt('How old are you?');
-// let age = Number(ageStr);
+document.getElementById('role-title').textContent = `${departmentChoice.toUpperCase()}: ${departments[departmentChoice].jobs[jobChoice].title.toUpperCase()}`;
+
+document.getElementById('department-description').textContent = departments[departmentChoice].description;
+
+document.getElementById('role-description').textContent = departments[departmentChoice].jobs[jobChoice].description;

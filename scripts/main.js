@@ -71,24 +71,24 @@ const departments = {
     }
 }
 
-console.log(departments);
-// ========================== OPDRACHT 1A ========================== //
-console.log('Opdracht 1a');
-console.log(`De afdeling Sales heeft ${departments.sales.numberOfEmployees} medewerkers`);
-console.log();
-// ========================== OPDRACHT 1B ========================== //
-console.log('Opdracht 1b');
-console.log(`Marketing is een leuke afdeling om te werken. ${departments.marketing.description}.`);
-console.log();
-// ========================== OPDRACHT 1C ========================== //
-console.log('Opdracht 1c');
-console.log(`De afdeling Customer Service heeft ${departments["customer-service"].numberOfEmployees} medewerkers`);
-console.log();
-// ========================== OPDRACHT 1D ========================== //
-console.log('Opdracht 1d');
-console.log(`Sales is een uitdagende afdeling om te werken als "Verkoopmanager". ${departments.sales.jobs[1].description}`);
-console.log();
-console.log();
+// console.log(departments);
+// // ========================== OPDRACHT 1A ========================== //
+// console.log('Opdracht 1a');
+// console.log(`De afdeling Sales heeft ${departments.sales.numberOfEmployees} medewerkers`);
+// console.log();
+// // ========================== OPDRACHT 1B ========================== //
+// console.log('Opdracht 1b');
+// console.log(`Marketing is een leuke afdeling om te werken. ${departments.marketing.description}.`);
+// console.log();
+// // ========================== OPDRACHT 1C ========================== //
+// console.log('Opdracht 1c');
+// console.log(`De afdeling Customer Service heeft ${departments["customer-service"].numberOfEmployees} medewerkers`);
+// console.log();
+// // ========================== OPDRACHT 1D ========================== //
+// console.log('Opdracht 1d');
+// console.log(`Sales is een uitdagende afdeling om te werken als "Verkoopmanager". ${departments.sales.jobs[1].description}`);
+// console.log();
+// console.log();
 
 
 // ========================== OPDRACHT 2A, 2B en 2C ========================== //
@@ -97,15 +97,9 @@ const departmentChoice = prompt('Over welke afdeling wil je meer informatie? Kie
 
 switch (departmentChoice) {
     case 'marketing':
-        // console.log(`Je koos ${departmentChoice}. ${departments.marketing.description}`);
-        console.log(`${departmentChoice.toUpperCase()} is een leuke afdeling om te werken. Er werken op dit moment ${departments[departmentChoice].numberOfEmployees} medewerkers.`)
-        break;
     case 'sales':
-        // console.log(`Je koos ${departmentChoice}. ${departments.sales.description}`);
-        console.log(`${departmentChoice.toUpperCase()} is een leuke afdeling om te werken. Er werken op dit moment ${departments[departmentChoice].numberOfEmployees} medewerkers.`)
-        break;
     case 'customer-service':
-        // console.log(`Je koos ${departmentChoice}. ${departments["customer-service"].description}`);
+        console.log(`Je koos ${departmentChoice}. ${departments["customer-service"].description}`);
         console.log(`${departmentChoice.toUpperCase()} is een leuke afdeling om te werken. Er werken op dit moment ${departments[departmentChoice].numberOfEmployees} medewerkers.`)
         break;
     default:
@@ -123,23 +117,16 @@ const jobChoice = prompt(`Je koos ${departmentChoice.toUpperCase()}. Over welke 
 1: ${departments[departmentChoice].jobs[1].title},
 2: ${departments[departmentChoice].jobs[2].title},
 3: ${departments[departmentChoice].jobs[3].title}`);
+const jobChoiceNumber = Number(jobChoice);
 
 
-switch (jobChoice) {
+switch (jobChoiceNumber) {
     case 0:
-        console.log(`Je koos ${departments[departmentChoice].jobs[0].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[0].description}`);
-        break;
     case 1:
-        console.log(`Je koos ${departments[departmentChoice].jobs[1].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[1].description}`);
-        break;
     case 2:
-        console.log(`Je koos ${departments[departmentChoice].jobs[2].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[2].description}`);
-        break;
     case 3:
-        console.log(`Je koos ${departments[departmentChoice].jobs[3].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[3].description}`);
-        break;
     case 4:
-        console.log(`Je koos ${departments[departmentChoice].jobs[4].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[3].description}`);
+        console.log(`Je koos ${departments[departmentChoice].jobs[0].title}. Een uitdagende rol! ${departments[departmentChoice].jobs[jobChoice].description}`);
         break;
     default:
         console.log(`Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.`)
